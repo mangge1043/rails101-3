@@ -1,4 +1,5 @@
 class GroupsController < ApplicationController
+  before_action :authenticate_user! , only: [:new]
   def index
     @groups = Group.all
   end
@@ -23,7 +24,7 @@ class GroupsController < ApplicationController
     else
       render :new
     end
-end 
+end
 
     def update
       @group = Group.find(params[:id])
